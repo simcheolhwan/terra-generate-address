@@ -1,10 +1,11 @@
 import { useRecoilValue } from "recoil"
-import { Layout } from "antd"
+import { Layout, Typography } from "antd"
 import { mnemonicState } from "./database"
 import MnemonicForm from "./MnemonicForm"
 import Result from "./Result"
 
-const { Header, Content } = Layout
+const { Header, Content, Footer } = Layout
+const { Link } = Typography
 
 const App = () => {
   const mnemonic = useRecoilValue(mnemonicState)
@@ -21,6 +22,15 @@ const App = () => {
           {mnemonic && <Result />}
         </div>
       </Content>
+
+      <Footer>
+        <Link
+          type="secondary"
+          href="https://github.com/simcheolhwan/terra-address-generator"
+        >
+          GitHub
+        </Link>
+      </Footer>
     </Layout>
   )
 }
